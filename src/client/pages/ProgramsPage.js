@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
-const ProgramsPage = ({ programs, getPrograms, location }) => {
+export const UnconnectedProgramsPage = ({ programs, getPrograms }) => {
 	const classes = useStyles();
 	const [launchYear, setLaunchYear] = React.useState();
     const [successfulLaunch, setSuccessfulLaunch] = React.useState();
@@ -45,11 +45,12 @@ const ProgramsPage = ({ programs, getPrograms, location }) => {
 	return (
 		<React.Fragment>
 			{head()}
-			<h1 className={classes.heading}>SpaceX Launch Programs</h1>
+			<h1 data-test="page-title" className={classes.heading}>SpaceX Launch Programs</h1>
 			<Grid container spacing={2}>
 				<Grid item xs={12} sm={6} lg={3}>
 					<Paper className={classes.paper}>
 						<Filter
+							data-test="page-filter"
 							launchYear={launchYear}
 							setLaunchYear={setLaunchYear}
 							successfulLaunch={successfulLaunch}
@@ -60,7 +61,7 @@ const ProgramsPage = ({ programs, getPrograms, location }) => {
 				</Grid>
 
 				<Grid item xs={12} sm={6} lg={9}>
-					<ProgramList programs={programs} />
+					<ProgramList data-test="programs-list" programs={programs} />
 				</Grid>
 			</Grid>
 		</React.Fragment>
@@ -76,6 +77,6 @@ const loadData = (store) => {
 }
 
 export default {
-	component: connect(mapStateToProps, { getPrograms })(ProgramsPage),
+	component: connect(mapStateToProps, { getPrograms })(UnconnectedProgramsPage),
 	loadData
 };

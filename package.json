@@ -6,12 +6,21 @@
 	"scripts": {
 		"clean": "rimraf build && rimraf public && mkdir build && mkdir public",
 		"dev": "npm run clean && npm-run-all --parallel dev:*",
+		"test": "jest --watch",
 		"dev:build-server": "webpack --config webpack.server.js --watch",
 		"dev:build-client": "webpack --config webpack.client.js --watch",
 		"dev:server": "touch build/main.js && nodemon --watch build --exec node build/main.js",
 		"build:prod": "npm run clean && npm-run-all --parallel prod:*",
 		"prod:build-server": "cross-env NODE_ENV=production webpack --config webpack.server.js",
 		"prod:build-client": "cross-env NODE_ENV=production webpack --config webpack.client.js"
+	},
+	"jest": {
+		"transform": {
+			"^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+		},
+		"setupFiles": [
+			"./src/client/setupTests.js"
+		]
 	},
 	"author": "Ankit Verma",
 	"license": "ISC",
@@ -52,13 +61,22 @@
 		"@loadable/component": "^5.10.3",
 		"@loadable/server": "^5.10.3",
 		"@loadable/webpack-plugin": "^5.7.1",
+		"babel-jest": "^26.6.1",
 		"babel-loader": "^8.0.6",
 		"babel-plugin-styled-components": "^1.11.1",
+		"check-prop-types": "^1.1.2",
 		"cross-env": "^7.0.2",
 		"css-loader": "^2.1.1",
 		"dotenv": "^8.2.0",
+		"enzyme": "^3.11.0",
+		"enzyme-adapter-react-16": "^1.15.5",
+		"jest": "^26.6.1",
+		"jest-cli": "^26.6.1",
+		"jest-enzyme": "^7.1.2",
 		"mini-css-extract-plugin": "^0.6.0",
 		"optimize-css-assets-webpack-plugin": "^5.0.4",
+		"prop-types": "^15.7.2",
+		"redux-mock-store": "^1.5.4",
 		"style-loader": "^2.0.0",
 		"terser-webpack-plugin": "^4.2.2",
 		"webpack": "^4.44.2",

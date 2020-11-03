@@ -1,5 +1,5 @@
 import React from 'react';
-
+import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
@@ -19,7 +19,7 @@ const ProgramItem = ({ program }) => {
     const [dense, setDense] = React.useState(true);
 
     const renderMissions = () => {
-        if(program.mission_id.length) {
+        if (program.mission_id.length) {
             return program.mission_id.map(id => {
                 return (
                     <ListItem key={id}>
@@ -35,7 +35,7 @@ const ProgramItem = ({ program }) => {
     }
 
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} data-test="component-program-item">
             <img src={program.links.mission_patch_small} className={"w-100"} />
             <Typography variant="h4" color="secondary" style={{ paddingTop: '15px' }}>{program.mission_name} #{program.flight_number}</Typography>
             <p><strong>Mission Ids:</strong></p>
@@ -48,5 +48,17 @@ const ProgramItem = ({ program }) => {
         </Paper>
     )
 };
+
+ProgramItem.propTypes = {
+    program: propTypes.shape({
+        mission_id: propTypes.array.isRequired,
+        links: propTypes.object.isRequired,
+        mission_name: propTypes.string.isRequired,
+        flight_number: propTypes.number.isRequired,
+        launch_year: propTypes.string.isRequired,
+        launch_success: propTypes.bool.isRequired,
+        land_success: propTypes.isRequired
+    }).isRequired
+}
 
 export default ProgramItem;

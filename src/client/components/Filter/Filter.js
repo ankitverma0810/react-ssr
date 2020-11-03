@@ -1,5 +1,5 @@
 import React from 'react';
-
+import propTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
@@ -30,7 +30,7 @@ const Filter = (props) => {
     return (
         <React.Fragment>
             <Typography variant="h4">Filters</Typography>
-            <div className={classes.sections}>
+            <div className={classes.sections} data-test="launch-year">
                 <Typography variant="body1" className={classes.headings}>Launch Year</Typography>
                 <Divider className={classes.divider} />
                 <Grid container spacing={2}>
@@ -49,7 +49,7 @@ const Filter = (props) => {
                 </Grid>
             </div>
 
-            <div className={classes.sections}>
+            <div className={classes.sections} data-test="successful-launch">
                 <Typography variant="body1" className={classes.headings}>Successful Launch</Typography>
                 <Divider className={classes.divider} />
                 <Grid container spacing={2}>
@@ -72,7 +72,7 @@ const Filter = (props) => {
                 </Grid>
             </div>
 
-            <div className={classes.sections}>
+            <div className={classes.sections} data-test="successful-landing">
                 <Typography variant="body1" className={classes.headings}>Successful Landing</Typography>
                 <Divider className={classes.divider} />
                 <Grid container spacing={2}>
@@ -96,6 +96,15 @@ const Filter = (props) => {
             </div>
         </React.Fragment>
     )
+}
+
+Filter.propTypes = {
+    launchYear: propTypes.number,
+    setLaunchYear: propTypes.func,
+    successfulLaunch: propTypes.bool,
+    setSuccessfulLaunch: propTypes.func,
+    successfulLanding: propTypes.bool,
+    setSuccessfulLanding: propTypes.func
 }
 
 export default Filter;

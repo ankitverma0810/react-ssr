@@ -8,7 +8,7 @@ const App = ({ route }) => {
     useGlobalStyles();
     
     return (
-        <Layout>
+        <Layout data-test="component-app">
             {renderRoutes(route.routes)}
         </Layout>
     )
