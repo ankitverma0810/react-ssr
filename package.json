@@ -3,16 +3,18 @@
 	"version": "1.0.0",
 	"description": "Server side rendering project",
 	"main": "index.js",
+	"node": "10.16.x",
 	"scripts": {
 		"clean": "rimraf build && rimraf public && mkdir build && mkdir public",
-		"dev": "npm run clean && npm-run-all --parallel dev:*",
-		"test": "jest --watch",
+		"start": "npm run clean && npm-run-all --parallel dev:*",
 		"dev:build-server": "webpack --config webpack.server.js --watch",
 		"dev:build-client": "webpack --config webpack.client.js --watch",
 		"dev:server": "touch build/main.js && nodemon --watch build --exec node build/main.js",
-		"build:prod": "npm run clean && npm-run-all --parallel prod:*",
+		"build": "npm run clean && npm-run-all --parallel prod:*",
 		"prod:build-server": "cross-env NODE_ENV=production webpack --config webpack.server.js",
-		"prod:build-client": "cross-env NODE_ENV=production webpack --config webpack.client.js"
+		"prod:build-client": "cross-env NODE_ENV=production webpack --config webpack.client.js",
+		"prod:server": "touch build/main.js && nodemon --exec cross-env NODE_ENV=production node build/main.js",
+		"test": "jest --watch"
 	},
 	"jest": {
 		"transform": {
