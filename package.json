@@ -6,7 +6,8 @@
 	"node": "10.16.x",
 	"scripts": {
 		"clean": "rimraf build && rimraf public && mkdir build && mkdir public",
-		"start": "npm run clean && npm-run-all --parallel dev:*",
+		"start": "node build/main.js",
+		"dev": "npm run clean && npm-run-all --parallel dev:*",
 		"dev:build-server": "webpack --config webpack.server.js --watch",
 		"dev:build-client": "webpack --config webpack.client.js --watch",
 		"dev:server": "touch build/main.js && nodemon --watch build --exec node build/main.js",
