@@ -8,6 +8,7 @@ import createStore from './helpers/createStore';
 import Routes from './client/Routes';
 
 const app = express();
+const port = process.env.PORT || 5000;
 
 app.use('/api', proxy(process.env.API_URL));
 
@@ -48,6 +49,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(3000, () => {
-    console.log('listening on port 3000');
+app.listen(port, () => {
+    console.log(`listening on port ${port}`);
 });
