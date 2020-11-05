@@ -11,6 +11,8 @@
 /public
 
 # misc
+.env
+.env.production
 .DS_Store
 package-lock.json
 yarn.lock
