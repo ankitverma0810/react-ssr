@@ -9,14 +9,14 @@ Install dependencies with
 ```npm i```
 
 Run dev mode with
-```npm start```
+```npm run dev```
 
 Now open the browser and navigate to `http://localhost:3000` and you get your server rendered React app. You can inspect the page source and see that the html coming from your local server has all the nodes defined in the React app.
 
 ## Available Scripts
 In the project directory, you can run:
 
-### `npm start`
+### `npm run dev`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
