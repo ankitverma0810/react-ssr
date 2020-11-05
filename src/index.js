@@ -9,6 +9,7 @@ import Routes from './client/Routes';
 
 const app = express();
 const port = process.env.PORT || 5000;
+const host = process.env.HOST || '0.0.0.0';
 
 app.use('/api', proxy(process.env.API_URL));
 
@@ -49,6 +50,6 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(port, () => {
-    console.log(`listening on port ${port}`);
+app.listen(port, host, () => {
+    console.log(`listening on port ${host} - ${port}`);
 });
