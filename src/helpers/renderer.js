@@ -52,8 +52,10 @@ export default (req, store, context) => {
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
                 ${helmet.title.toString()}
                 ${helmet.meta.toString()}
-                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-                <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+                <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+                <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"></noscript>
+                <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+                <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"></noscript>
                 ${extractor.getLinkTags()}
                 ${extractor.getStyleTags()}
                 <style id="jss-server-side">${css}</style>
