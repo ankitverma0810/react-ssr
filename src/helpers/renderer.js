@@ -22,7 +22,7 @@ export default (req, store, context) => {
 
     const sheets = new ServerStyleSheets();
 
-    //To reduce ttfb (Time to first byte) we can use renderToNodeStream method instead of renderToString.
+    //To reduce ttfb (Time to first byte) we can use 'renderToNodeStream' method instead of 'renderToString'.
     //But renderToNodeStream will not work in case of authentication or redirects (incase of not login we have to reditect)
     const content = renderToString(
         extractor.collectChunks(
@@ -45,12 +45,13 @@ export default (req, store, context) => {
     const helmet = Helmet.renderStatic();
 
     return `
-        <html>
+        <!doctype html>
+        <html lang="en">
             <head>
-                ${helmet.title.toString()}
-                ${helmet.meta.toString()}
                 <meta charset="utf-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                ${helmet.title.toString()}
+                ${helmet.meta.toString()}
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
                 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
                 ${extractor.getLinkTags()}

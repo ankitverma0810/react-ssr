@@ -36,7 +36,7 @@ const ProgramItem = ({ program }) => {
 
     return (
         <Paper className={classes.paper} data-test="component-program-item">
-            <img src={program.links.mission_patch_small} className={"w-100"} />
+            <img loading="lazy" src={program.links.mission_patch_small} alt={program.mission_name} className={"w-100"} />
             <Typography variant="h4" color="secondary" style={{ paddingTop: '15px' }}>{program.mission_name} #{program.flight_number}</Typography>
             <p><strong>Mission Ids:</strong></p>
             <List dense={dense} className={"padding-0"}>
