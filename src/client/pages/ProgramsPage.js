@@ -47,7 +47,7 @@ export const UnconnectedProgramsPage = ({ programs, getPrograms }) => {
 			{head()}
 			<h1 data-test="page-title" className={classes.heading}>SpaceX Launch Programs</h1>
 			<Grid container spacing={2}>
-				<Grid item xs={12} sm={6} md={3}>
+				<Grid item xs={12} sm={4} md={3}>
 					<Paper className={classes.paper}>
 						<Filter
 							data-test="page-filter"
@@ -60,7 +60,7 @@ export const UnconnectedProgramsPage = ({ programs, getPrograms }) => {
 					</Paper>
 				</Grid>
 
-				<Grid item xs={12} sm={6} md={9}>
+				<Grid item xs={12} sm={8} md={9}>
 					<ProgramList data-test="programs-list" programs={programs} />
 				</Grid>
 			</Grid>
