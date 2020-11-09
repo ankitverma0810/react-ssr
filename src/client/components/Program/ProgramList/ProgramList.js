@@ -9,7 +9,7 @@ const ProgramList = ({ programs }) => {
 		<Grid container spacing={2} data-test="component-program-list">
 			{programs.map(program => {
 				return (
-					<Grid key={program.flight_number} item xs={12} lg={3}>
+					<Grid key={program.flight_number} item xs={12} md={3} className={"d-flex"}>
 						<ProgramItem program={program} />
 					</Grid>
 				)

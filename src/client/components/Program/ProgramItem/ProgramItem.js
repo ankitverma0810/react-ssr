@@ -10,7 +10,10 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles((theme) => ({
     paper: {
         padding: theme.spacing(2),
-        color: theme.palette.text.secondary
+        color: theme.palette.text.secondary,
+        display: 'flex',
+        flexDirection: 'column',
+        flexGrow: 1
     }
 }));
 
@@ -44,7 +47,7 @@ const ProgramItem = ({ program }) => {
             </List>
             <p><strong>Launch Year:</strong> {program.launch_year}</p>
             <p><strong>Successful Launch:</strong> {JSON.stringify(program.launch_success)}</p>
-            <p><strong>Successful Landing:</strong> {JSON.stringify(program.land_success)}</p>
+            <p><strong>Successful Landing:</strong> {(program.rocket.first_stage.cores[0]['land_success']) ? JSON.stringify(program.rocket.first_stage.cores[0]['land_success']) : 'false'}</p>
         </Paper>
     )
 };
@@ -56,8 +59,8 @@ ProgramItem.propTypes = {
         mission_name: propTypes.string.isRequired,
         flight_number: propTypes.number.isRequired,
         launch_year: propTypes.string.isRequired,
-        launch_success: propTypes.bool.isRequired,
-        land_success: propTypes.isRequired
+        launch_success: propTypes.isRequired,
+        rocket: propTypes.object.isRequired
     }).isRequired
 }
 

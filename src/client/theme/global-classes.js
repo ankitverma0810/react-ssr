@@ -16,6 +16,12 @@ const useGlobalStyles = makeStyles(theme => ({
 		},
 		'.font-weight-bold': {
 			fontWeight: 'bold'
+		},
+		'.d-flex': {
+			display: 'flex'
+		},
+		'flex-column': {
+			flexDirection: 'column'
 		}
 	}
 }));

@@ -14,7 +14,13 @@ const defaultProps = {
         },
         launch_year: '2006',
         launch_success: false,
-        land_success: null
+        rocket: {
+            first_stage: {
+                cores: [
+                    { land_success: false }
+                ]
+            }
+        }
     }
 };
 
@@ -28,7 +34,7 @@ test('does not throw warning with expected props', () => {
 });
 
 test('renders without crashing', () => {
-	const wrapper = setup();
-	const programListComponent = findByTestAttr(wrapper, 'component-program-item');
-	expect(programListComponent.length).toBe(1);
+    const wrapper = setup();
+    const programListComponent = findByTestAttr(wrapper, 'component-program-item');
+    expect(programListComponent.length).toBe(1);
 });

@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
 	root: {
 		flexGrow: 1,
-		padding: '0 15px'
+		padding: '0 15px',
+		maxWidth: '1440px',
+		margin: '0 auto'
 	}
 }));
 
